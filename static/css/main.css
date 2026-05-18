@@ -379,12 +379,12 @@ a:hover { text-decoration: underline; }
 }
 
 /* Book spine colors */
-.project-item:nth-child(1) { background: #1e3a35; }
-.project-item:nth-child(2) { background: #2d3d1e; }
-.project-item:nth-child(3) { background: #1e2d3a; }
-.project-item:nth-child(4) { background: #3a2a1a; }
-.project-item:nth-child(5) { background: #2a1a3a; }
-.project-item:nth-child(6) { background: #3a1e28; }
+.project-item:nth-child(1) { background: #4a6058; }
+.project-item:nth-child(2) { background: #5a6248; }
+.project-item:nth-child(3) { background: #485866; }
+.project-item:nth-child(4) { background: #6a5448; }
+.project-item:nth-child(5) { background: #524860; }
+.project-item:nth-child(6) { background: #624850; }
 
 .p-tags .d-tag {
   background: none;
