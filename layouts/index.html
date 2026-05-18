@@ -65,24 +65,28 @@
   <a href="/articles/" class="view-all">查看全部 →</a>
 </section>
 
-<!-- § 书单 -->
+<!-- § 项目 -->
 <section class="section">
-  <div class="section-header">§ 书单</div>
-  {{ $books := .Site.Data.books }}
-  {{ if $books }}
-  <div class="book-grid">
-    {{ range first 6 $books }}
-    <div class="book-card">
-      <div class="book-status {{ if eq .status "在读" }}reading{{ end }}">{{ .status }}</div>
-      <div class="book-title">{{ .title }}</div>
-      <div class="book-author">{{ .author }}</div>
+  <div class="section-header">§ 项目</div>
+  {{ $projects := .Site.GetPage "/projects" }}
+  {{ if $projects }}
+  <div class="home-project-grid">
+    {{ range $projects.Params.projects }}
+    <div class="home-project-card">
+      <div class="home-project-name-row">
+        <span class="home-project-name">{{ .name }}</span>
+        <span class="home-project-name-en">{{ .name_en }}</span>
+      </div>
+      <p class="home-project-desc">{{ .desc }}</p>
+      <div class="home-project-links">
+        {{ if .url }}<a href="{{ .url }}" class="home-project-link" target="_blank" rel="noopener">{{ .url_label }} →</a>{{ end }}
+        {{ if .github }}<a href="{{ .github }}" class="home-project-github" target="_blank" rel="noopener">GitHub</a>{{ end }}
+      </div>
     </div>
     {{ end }}
   </div>
-  {{ else }}
-  <p style="font-size:13px;color:#bbb;">书单整理中 ...</p>
   {{ end }}
-  <a href="/books/" class="view-all">查看完整书单 →</a>
+  <a href="/projects/" class="view-all">查看全部项目 →</a>
 </section>
 
 {{ end }}
