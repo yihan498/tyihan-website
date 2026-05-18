@@ -1,0 +1,8 @@
+<nav class="site-nav">
+  <a class="nav-brand" href="/">Tian Yihan</a>
+  <ul class="nav-links">
+    {{ range .Site.Menus.main }}
+    <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+    {{ end }}
+  </ul>
+</nav>
