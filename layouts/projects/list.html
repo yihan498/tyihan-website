@@ -1,0 +1,36 @@
+{{ define "main" }}
+<div class="projects-page">
+  <div class="projects-header">
+    <h1>项目</h1>
+    <p class="projects-subtitle">我做过的一些东西</p>
+  </div>
+
+  <div class="project-grid">
+    {{ range .Params.projects }}
+    <div class="project-card">
+      <div class="project-card-top">
+        <div class="project-name-row">
+          <h2 class="project-name">{{ .name }}</h2>
+          <span class="project-name-en">{{ .name_en }}</span>
+        </div>
+        <div class="project-tags">
+          {{ range .tags }}
+          <span class="project-tag">{{ . }}</span>
+          {{ end }}
+        </div>
+      </div>
+      <p class="project-desc">{{ .desc }}</p>
+      <div class="project-footer">
+        {{ if .url }}
+        <a href="{{ .url }}" class="project-link" target="_blank" rel="noopener">
+          {{ .url_label }} →
+        </a>
+        {{ else }}
+        <span class="project-no-link">暂无公开链接</span>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
