@@ -241,10 +241,10 @@ a:hover { text-decoration: underline; }
 }
 
 .sh-title {
-  font-size: 19px;
-  font-weight: 700;
-  letter-spacing: -0.3px;
-  color: var(--color-text);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--color-secondary);
   flex: 1;
   line-height: 1.3;
 }
