@@ -308,6 +308,7 @@ a:hover { text-decoration: underline; }
 .growth-body { display: flex; flex-direction: column; gap: 6px; }
 
 .growth-title-link { text-decoration: none; }
+.growth-title-link:hover { text-decoration: none; }
 .growth-title-link:hover .growth-title { color: var(--color-text); }
 
 .growth-title {
