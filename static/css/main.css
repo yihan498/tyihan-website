@@ -228,10 +228,11 @@ a:hover { text-decoration: underline; }
   align-items: baseline;
   padding: 16px 0;
   border-bottom: 1px solid var(--color-border);
+  transition: padding-left 0.1s, border-color 0.1s;
 }
 
 .article-item:first-child { border-top: 1px solid var(--color-border); }
-.article-item:hover { animation: glitch-box 0.4s step-end infinite; }
+.article-item:hover { padding-left: 8px; border-bottom-color: var(--color-faint); }
 
 .a-date {
   font-size: 11px;
@@ -272,10 +273,11 @@ a:hover { text-decoration: underline; }
   gap: 24px;
   padding: 24px 0;
   border-bottom: 1px solid var(--color-border);
+  transition: padding-left 0.1s, border-color 0.1s;
 }
 
 .growth-item:first-child { border-top: 1px solid var(--color-border); }
-.growth-item:hover { animation: glitch-box 0.4s step-end infinite; }
+.growth-item:hover { padding-left: 8px; border-bottom-color: var(--color-faint); }
 
 .growth-meta {
   display: flex;
@@ -331,10 +333,11 @@ a:hover { text-decoration: underline; }
   align-items: flex-start;
   padding: 16px 0;
   border-bottom: 1px solid var(--color-border);
+  transition: padding-left 0.1s, border-color 0.1s;
 }
 
 .project-item:first-child { border-top: 1px solid var(--color-border); }
-.project-item:hover { animation: glitch-box 0.4s step-end infinite; }
+.project-item:hover { padding-left: 8px; border-bottom-color: var(--color-faint); }
 
 .p-tags {
   padding-top: 3px;
@@ -691,18 +694,6 @@ a:hover { text-decoration: underline; }
   color: var(--color-text);
   border-color: var(--color-faint);
   transform: translateY(-3px);
-}
-
-/* ── Glitch hover animation ── */
-@keyframes glitch-box {
-  0%   { transform: translateX(0);    }
-  15%  { transform: translateX(-4px); }
-  30%  { transform: translateX(4px);  }
-  45%  { transform: translateX(-2px); }
-  60%  { transform: translateX(3px);  }
-  75%  { transform: translateX(-3px); }
-  90%  { transform: translateX(2px);  }
-  100% { transform: translateX(0);    }
 }
 
 /* ── Responsive ── */
