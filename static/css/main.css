@@ -223,12 +223,6 @@ a:hover { text-decoration: underline; }
   margin-bottom: 28px;
 }
 
-.section-header::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--color-border);
-}
 
 /* ── Article list ── */
 .article-list { list-style: none; }
