@@ -1,0 +1,88 @@
+{{ define "main" }}
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-left">
+    <h1 class="hero-headline">
+      A lifelong<br>learner,<br><em>always</em><br>growing.
+    </h1>
+    <p class="hero-bio">
+      金融学生，读书，思考，写作。<br>
+      记录关于财富、成长与生活的感悟。
+    </p>
+    <div class="hero-meta">
+      <span class="meta-key">School</span>
+      <span class="meta-val">{{ .Site.Params.school }}</span>
+
+      <span class="meta-key">Major</span>
+      <span class="meta-val">{{ .Site.Params.major }}</span>
+
+      <span class="meta-key">Location</span>
+      <span class="meta-val">{{ .Site.Params.location }}</span>
+
+      <span class="meta-key">公众号</span>
+      <span class="meta-val">{{ .Site.Params.wechat }}</span>
+
+      <span class="meta-key">Since</span>
+      <span class="meta-val">{{ .Site.Params.since }}</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="dispatch-label">
+      <span class="active">近期更新</span>
+      <span><a href="/articles/" style="color:inherit">全部文章</a></span>
+    </div>
+    <ul class="dispatch-list">
+      {{ range .Params.dispatch }}
+      <li class="dispatch-item">
+        <span class="d-tag">{{ .tag }}</span>
+        <a href="{{ .url }}" class="d-title">{{ .title }}</a>
+        <span class="d-when">{{ .when }}</span>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</section>
+
+<!-- § 文章 -->
+<section class="section">
+  <div class="section-header">§ 文章</div>
+  {{ $articles := where .Site.RegularPages "Section" "articles" }}
+  {{ if $articles }}
+  <ul class="article-list">
+    {{ range first 5 $articles }}
+    <li class="article-item">
+      <span class="a-date">{{ .Date.Format "2006-01-02" }}</span>
+      <a href="{{ .Permalink }}" class="a-title">{{ .Title }}</a>
+      <span class="a-arrow">→</span>
+    </li>
+    {{ end }}
+  </ul>
+  {{ else }}
+  <p style="font-size:13px;color:#bbb;">文章即将更新 ...</p>
+  {{ end }}
+  <a href="/articles/" class="view-all">查看全部 →</a>
+</section>
+
+<!-- § 书单 -->
+<section class="section">
+  <div class="section-header">§ 书单</div>
+  {{ $books := .Site.Data.books }}
+  {{ if $books }}
+  <div class="book-grid">
+    {{ range first 6 $books }}
+    <div class="book-card">
+      <div class="book-status {{ if eq .status "在读" }}reading{{ end }}">{{ .status }}</div>
+      <div class="book-title">{{ .title }}</div>
+      <div class="book-author">{{ .author }}</div>
+    </div>
+    {{ end }}
+  </div>
+  {{ else }}
+  <p style="font-size:13px;color:#bbb;">书单整理中 ...</p>
+  {{ end }}
+  <a href="/books/" class="view-all">查看完整书单 →</a>
+</section>
+
+{{ end }}
