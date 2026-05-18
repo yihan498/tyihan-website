@@ -360,7 +360,7 @@ a:hover { text-decoration: underline; }
 }
 
 .project-item {
-  width: 88px;
+  width: 64px;
   flex: none;
   display: flex;
   flex-direction: column;
