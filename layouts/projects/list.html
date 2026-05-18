@@ -25,8 +25,9 @@
         <a href="{{ .url }}" class="project-link" target="_blank" rel="noopener">
           {{ .url_label }} →
         </a>
-        {{ else }}
-        <span class="project-no-link">暂无公开链接</span>
+        {{ end }}
+        {{ if .github }}
+        <a href="{{ .github }}" class="project-github" target="_blank" rel="noopener">GitHub</a>
         {{ end }}
       </div>
     </div>
