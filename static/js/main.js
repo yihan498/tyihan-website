@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       h.innerHTML = positions[pos] + '<span class="hl-cursor">|</span>';
       pos++;
-      setTimeout(type, 38);
+      setTimeout(type, 65);
     }
 
     setTimeout(type, 150);
