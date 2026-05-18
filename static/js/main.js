@@ -5,6 +5,16 @@
   if (saved === 'dark') root.setAttribute('data-theme', 'dark');
 })();
 
+/* ── Hero headline stagger ── */
+(function () {
+  const h = document.querySelector('.hero-headline');
+  if (!h) return;
+  const parts = h.innerHTML.split(/<br\s*\/?>/i);
+  h.innerHTML = parts.map((part, i) =>
+    `<span class="hl-line" style="animation-delay:${i * 0.13}s">${part}</span>`
+  ).join('');
+})();
+
 document.addEventListener('DOMContentLoaded', function () {
   /* ── Dark mode toggle ── */
   const btn = document.getElementById('theme-toggle');
