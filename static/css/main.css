@@ -534,94 +534,58 @@ a:hover { text-decoration: underline; }
   text-decoration: none;
 }
 
-/* ── Home project grid ── */
-.home-project-grid {
+/* ── Home project list ── */
+.project-list { list-style: none; }
+
+.project-item {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: 44px 1fr 16px;
   gap: 16px;
+  align-items: flex-start;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+  transition: background 0.15s;
 }
 
-.home-project-card {
-  border: 1px solid var(--color-border);
-  padding: 20px;
+.project-item:first-child { border-top: 1px solid var(--color-border); }
+
+.project-item:hover { background: #fafafa; }
+
+[data-theme="dark"] .project-item:hover { background: #181818; }
+
+.p-tags {
+  padding-top: 3px;
+}
+
+.p-body {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+  gap: 4px;
 }
 
-.home-project-card:hover {
-  border-color: #bbb;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
-}
-
-[data-theme="dark"] .home-project-card {
-  background: #161616;
-}
-
-[data-theme="dark"] .home-project-card:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-}
-
-.home-project-name-row {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.home-project-name {
+.p-name {
   font-size: 15px;
-  font-weight: 700;
-  color: var(--color-text);
-  letter-spacing: -0.2px;
+  font-weight: 600;
+  color: var(--color-secondary);
+  font-family: var(--font-serif);
+  line-height: 1.4;
 }
 
-.home-project-name-en {
+.p-name:hover { color: var(--color-text); text-decoration: none; }
+
+.p-name-en {
   font-size: 11px;
   color: var(--color-subtle);
-  font-family: var(--font-serif);
   font-style: italic;
+  font-family: var(--font-serif);
 }
 
-.home-project-desc {
+.p-desc {
   font-size: 13px;
   color: var(--color-muted);
-  font-family: var(--font-serif);
   line-height: 1.7;
-  flex: 1;
-}
-
-.home-project-links {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding-top: 8px;
-  border-top: 1px solid var(--color-border);
-}
-
-.home-project-link {
-  font-size: 12px;
-  color: var(--color-text);
-  font-weight: 500;
-}
-
-.home-project-link:hover { text-decoration: underline; }
-
-.home-project-github {
-  font-size: 11px;
-  color: var(--color-subtle);
-  border: 1px solid var(--color-border);
-  padding: 2px 7px;
-  border-radius: 4px;
-}
-
-.home-project-github:hover {
-  color: var(--color-text);
-  border-color: #bbb;
-  text-decoration: none;
+  margin-top: 4px;
+  font-family: var(--font-serif);
 }
 
 /* ── Dark mode ── */

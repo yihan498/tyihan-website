@@ -70,21 +70,21 @@
   <div class="section-header">§ 项目</div>
   {{ $projects := .Site.GetPage "/projects" }}
   {{ if $projects }}
-  <div class="home-project-grid">
+  <ul class="project-list">
     {{ range $projects.Params.projects }}
-    <div class="home-project-card">
-      <div class="home-project-name-row">
-        <span class="home-project-name">{{ .name }}</span>
-        <span class="home-project-name-en">{{ .name_en }}</span>
+    <li class="project-item">
+      <div class="p-tags">
+        {{ range first 1 .tags }}<span class="d-tag">{{ . }}</span>{{ end }}
       </div>
-      <p class="home-project-desc">{{ .desc }}</p>
-      <div class="home-project-links">
-        {{ if .url }}<a href="{{ .url }}" class="home-project-link" target="_blank" rel="noopener">{{ .url_label }} →</a>{{ end }}
-        {{ if .github }}<a href="{{ .github }}" class="home-project-github" target="_blank" rel="noopener">GitHub</a>{{ end }}
+      <div class="p-body">
+        <a href="{{ if .url }}{{ .url }}{{ else }}{{ .github }}{{ end }}" class="p-name" target="_blank" rel="noopener">{{ .name }}</a>
+        <span class="p-name-en">{{ .name_en }}</span>
+        <p class="p-desc">{{ .desc }}</p>
       </div>
-    </div>
+      <a href="{{ if .url }}{{ .url }}{{ else }}{{ .github }}{{ end }}" class="a-arrow" target="_blank" rel="noopener">→</a>
+    </li>
     {{ end }}
-  </div>
+  </ul>
   {{ end }}
   <a href="/projects/" class="view-all">查看全部项目 →</a>
 </section>
