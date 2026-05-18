@@ -1,6 +1,7 @@
 ---
 title: "关于"
 layout: "single"
+date: 2025-05-18
 ---
 
 <div class="page-single">
