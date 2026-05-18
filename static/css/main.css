@@ -195,7 +195,7 @@ a:hover { text-decoration: underline; }
 
 /* ── Section ── */
 .section {
-  padding: 48px var(--padding-x);
+  padding: 36px var(--padding-x);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -242,6 +242,7 @@ a:hover { text-decoration: underline; }
 
 .a-title {
   font-size: 15px;
+  font-weight: 500;
   color: var(--color-secondary);
   line-height: 1.5;
 }
@@ -311,7 +312,7 @@ a:hover { text-decoration: underline; }
 
 .growth-title {
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-secondary);
   line-height: 1.5;
 }
@@ -351,7 +352,7 @@ a:hover { text-decoration: underline; }
 
 .p-name {
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-secondary);
   line-height: 1.5;
 }
