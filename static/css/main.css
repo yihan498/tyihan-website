@@ -148,6 +148,9 @@ a:hover { text-decoration: underline; }
 /* ── Dispatch (recent updates) ── */
 .hero-right {
   padding-top: 52px;
+  border: 1px solid var(--color-border);
+  padding: 28px 28px 8px;
+  margin-top: 52px;
 }
 
 .dispatch-label {
@@ -200,6 +203,8 @@ a:hover { text-decoration: underline; }
   color: var(--color-secondary);
   line-height: 1.5;
 }
+
+.d-title:hover { text-decoration: none; }
 
 .d-when {
   font-size: 11px;
