@@ -6,17 +6,25 @@
   </div>
   {{ $articles := .Pages }}
   {{ if $articles }}
-  <ul class="article-list">
+  <div class="article-grid">
     {{ range $articles }}
-    <li class="article-item">
-      <span class="a-date">{{ .Date.Format "2006-01-02" }}</span>
-      <a href="{{ .Permalink }}" class="a-title">{{ .Title }}</a>
-      <span class="a-arrow">→</span>
-    </li>
+    <div class="article-card">
+      <a href="{{ .Permalink }}" class="article-card-img-wrap">
+        {{ if .Params.image }}
+        <img src="{{ .Params.image }}" class="article-card-img" alt="{{ .Title }}">
+        {{ else }}
+        <div class="article-card-img article-card-img--placeholder"></div>
+        {{ end }}
+      </a>
+      <div class="article-card-info">
+        <span class="article-card-date">{{ .Date.Format "2006-01-02" }}</span>
+        <a href="{{ .Permalink }}" class="article-card-title">{{ .Title }}</a>
+      </div>
+    </div>
     {{ end }}
-  </ul>
+  </div>
   {{ else }}
-  <p style="font-size:14px;color:#bbb;font-family:Georgia,serif;">文章即将更新...</p>
+  <p style="font-size:14px;color:var(--color-faint);">文章即将更新...</p>
   {{ end }}
 </div>
 {{ end }}
