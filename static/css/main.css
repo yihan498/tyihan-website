@@ -351,10 +351,11 @@ a:hover { text-decoration: underline; }
 /* ── Project list (home) ── */
 .project-list {
   list-style: none;
-  border: 1px solid var(--color-border);
-  background: var(--color-bg);
   display: flex;
   flex-direction: row;
+  border-bottom: 2px solid var(--color-border);
+  overflow: visible;
+  align-items: flex-end;
 }
 
 .project-item {
@@ -364,28 +365,33 @@ a:hover { text-decoration: underline; }
   align-items: center;
   justify-content: space-between;
   padding: 20px 0 16px;
-  border-right: 1px solid var(--color-border);
-  border-bottom: none;
-  min-height: 180px;
-  transition: background 0.1s;
+  min-height: 190px;
+  position: relative;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s;
 }
 
-.project-item:last-child { border-right: none; }
-.project-item:hover { background: var(--color-surface); }
-
-.p-tags {
-  font-size: 9px;
-  letter-spacing: 0.5px;
-  color: var(--color-subtle);
-  text-transform: uppercase;
+.project-item:hover {
+  transform: translateY(-14px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+  z-index: 1;
 }
+
+/* Book spine colors */
+.project-item:nth-child(1) { background: #1e3a35; }
+.project-item:nth-child(2) { background: #2d3d1e; }
+.project-item:nth-child(3) { background: #1e2d3a; }
+.project-item:nth-child(4) { background: #3a2a1a; }
+.project-item:nth-child(5) { background: #2a1a3a; }
+.project-item:nth-child(6) { background: #3a1e28; }
 
 .p-tags .d-tag {
   background: none;
   padding: 0;
   border-radius: 0;
   font-size: 9px;
-  color: var(--color-subtle);
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
 }
 
 .p-body {
@@ -402,19 +408,19 @@ a:hover { text-decoration: underline; }
   writing-mode: vertical-rl;
   font-size: 13px;
   font-weight: 500;
-  color: var(--color-secondary);
-  letter-spacing: 2px;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 2.5px;
   line-height: 1;
   text-decoration: none;
 }
 
-.p-name:hover { color: var(--color-text); text-decoration: none; }
+.p-name:hover { color: #fff; text-decoration: none; }
 
 .p-name-en {
   writing-mode: vertical-rl;
   font-size: 10px;
   font-style: italic;
-  color: var(--color-faint);
+  color: rgba(255,255,255,0.3);
   letter-spacing: 0.5px;
   line-height: 1;
 }
