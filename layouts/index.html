@@ -47,7 +47,11 @@
 
 <!-- § 文章 -->
 <section class="section">
-  <div class="section-header">§ 文章</div>
+  <div class="section-header">
+    <span class="sh-label">§ 01 / 文章</span>
+    <div class="sh-title">阅读与记录 — <em>writing about ideas &amp; life</em></div>
+    <a href="/articles/" class="sh-action">查看全部 →</a>
+  </div>
   {{ $articles := where .Site.RegularPages "Section" "articles" }}
   {{ if $articles }}
   <ul class="article-list">
@@ -62,12 +66,16 @@
   {{ else }}
   <p style="font-size:13px;color:#bbb;">文章即将更新 ...</p>
   {{ end }}
-  <a href="/articles/" class="view-all">查看全部 →</a>
+
 </section>
 
 <!-- § 成长 -->
 <section class="section">
-  <div class="section-header">§ 成长</div>
+  <div class="section-header">
+    <span class="sh-label">§ 02 / 成长</span>
+    <div class="sh-title">认知与规划 — <em>notes on learning &amp; self-development</em></div>
+    <a href="/growth/" class="sh-action">查看全部 →</a>
+  </div>
   {{ $entries := where .Site.RegularPages "Section" "growth" }}
   {{ if $entries }}
   <ul class="growth-list">
@@ -89,12 +97,16 @@
   {{ else }}
   <p style="font-size:13px;color:#bbb;">内容整理中 ...</p>
   {{ end }}
-  <a href="/growth/" class="view-all">查看全部 →</a>
+
 </section>
 
 <!-- § 项目 -->
 <section class="section">
-  <div class="section-header">§ 项目</div>
+  <div class="section-header">
+    <span class="sh-label">§ 03 / 项目</span>
+    <div class="sh-title">探索与构建 — <em>projects &amp; experiments</em></div>
+    <a href="/projects/" class="sh-action">查看全部 →</a>
+  </div>
   {{ $projects := .Site.GetPage "/projects" }}
   {{ if $projects }}
   <ul class="project-list">
@@ -111,7 +123,7 @@
     {{ end }}
   </ul>
   {{ end }}
-  <a href="/projects/" class="view-all">查看全部项目 →</a>
+
 </section>
 
 {{ end }}
