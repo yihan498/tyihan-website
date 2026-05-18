@@ -1,7 +1,6 @@
 baseURL = "https://tianyihan.tyihan.com/"
 languageCode = "zh-CN"
 title = "田一含"
-theme = ""
 
 [params]
   description = "终身学习者"
