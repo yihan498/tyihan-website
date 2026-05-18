@@ -33,6 +33,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { passive: true });
   }
 
+  /* ── Glitch: set data-text on all list titles ── */
+  document.querySelectorAll('.a-title, .growth-title, .p-name').forEach(el => {
+    el.setAttribute('data-text', el.textContent.trim());
+  });
+
   /* ── Back to top ── */
   const top = document.getElementById('back-to-top');
   if (top) {

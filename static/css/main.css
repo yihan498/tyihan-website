@@ -245,9 +245,27 @@ a:hover { text-decoration: underline; }
   font-weight: 500;
   color: var(--color-secondary);
   line-height: 1.5;
+  position: relative;
+  display: block;
 }
 
 .a-title:hover { color: var(--color-text); text-decoration: none; }
+
+.a-title::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--color-accent);
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+  clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+}
+
+.a-title:hover::before {
+  animation: glitch-title 0.3s step-end infinite;
+  opacity: 0.5;
+}
 
 .a-arrow {
   font-size: 12px;
@@ -315,6 +333,23 @@ a:hover { text-decoration: underline; }
   font-weight: 500;
   color: var(--color-secondary);
   line-height: 1.5;
+  position: relative;
+}
+
+.growth-title::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--color-accent);
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+  clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+}
+
+.growth-title-link:hover .growth-title::before {
+  animation: glitch-title 0.3s step-end infinite;
+  opacity: 0.5;
 }
 
 .growth-desc {
@@ -355,6 +390,24 @@ a:hover { text-decoration: underline; }
   font-weight: 500;
   color: var(--color-secondary);
   line-height: 1.5;
+  position: relative;
+  display: block;
+}
+
+.p-name::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--color-accent);
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+  clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+}
+
+.p-name:hover::before {
+  animation: glitch-title 0.3s step-end infinite;
+  opacity: 0.5;
 }
 
 .p-name:hover { color: var(--color-text); text-decoration: none; }
@@ -694,6 +747,15 @@ a:hover { text-decoration: underline; }
   color: var(--color-text);
   border-color: var(--color-faint);
   transform: translateY(-3px);
+}
+
+/* ── Glitch hover animation ── */
+@keyframes glitch-title {
+  0%   { clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%); left: -2px; }
+  25%  { clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%); left:  2px; }
+  50%  { clip-path: polygon(0 10%, 100% 10%, 100% 30%, 0 30%); left: -1px; }
+  75%  { clip-path: polygon(0 70%, 100% 70%, 100% 90%, 0 90%); left:  1px; }
+  100% { clip-path: polygon(0 40%, 100% 40%, 100% 60%, 0 60%); left: -2px; }
 }
 
 /* ── Responsive ── */
