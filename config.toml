@@ -1,0 +1,37 @@
+baseURL = "https://tianyihan.tyihan.com/"
+languageCode = "zh-CN"
+title = "田一含"
+theme = ""
+
+[params]
+  description = "终身学习者"
+  author = "田一含"
+  since = "2026"
+  school = "中国人民大学"
+  major = "金融学"
+  location = "北京"
+  wechat = "Elowen Tian"
+  email = ""
+
+[menu]
+  [[menu.main]]
+    name = "文章"
+    url = "/articles/"
+    weight = 1
+  [[menu.main]]
+    name = "书单"
+    url = "/books/"
+    weight = 2
+  [[menu.main]]
+    name = "关于"
+    url = "/about/"
+    weight = 3
+  [[menu.main]]
+    name = "联系"
+    url = "/contact/"
+    weight = 4
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
