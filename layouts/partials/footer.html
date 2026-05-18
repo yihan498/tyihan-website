@@ -2,6 +2,7 @@
   <span class="footer-copy">© {{ now.Year }} 田一含</span>
   <div class="footer-links">
     {{ with .Site.Params.wechat }}<a href="#">公众号 · {{ . }}</a>{{ end }}
+    {{ with .Site.Params.github }}<a href="https://github.com/{{ . }}" target="_blank">GitHub</a>{{ end }}
     {{ with .Site.Params.email }}<a href="mailto:{{ . }}">邮件</a>{{ end }}
   </div>
 </footer>

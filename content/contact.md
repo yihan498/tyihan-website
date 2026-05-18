@@ -9,7 +9,9 @@ layout: "single"
 
 微信公众号：**Elowen Tian**
 
-邮件：（待补充）
+邮件：[tianyihan498@gmail.com](mailto:tianyihan498@gmail.com)
+
+GitHub：[github.com/yihan498](https://github.com/yihan498)
 
   </div>
 </div>
