@@ -92,7 +92,7 @@ a:hover { text-decoration: underline; }
   color: #666;
   line-height: 1.9;
   margin-bottom: 28px;
-  font-family: var(--font-serif);
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .hero-meta {
