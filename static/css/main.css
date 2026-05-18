@@ -74,12 +74,12 @@ a:hover { text-decoration: underline; }
 }
 
 .hero-headline {
-  font-size: 40px;
+  font-size: 60px;
   font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -1.5px;
+  line-height: 1.1;
+  letter-spacing: -2.5px;
   color: var(--color-text);
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .hero-headline em {
@@ -745,7 +745,7 @@ a:hover { text-decoration: underline; }
     padding: 40px var(--padding-x) 40px;
   }
 
-  .hero-headline { font-size: 30px; }
+  .hero-headline { font-size: 38px; letter-spacing: -1.5px; }
 
   .book-grid { grid-template-columns: 1fr 1fr; }
 
