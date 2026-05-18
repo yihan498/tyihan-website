@@ -223,7 +223,7 @@ a:hover { text-decoration: underline; }
 
 .article-item {
   display: grid;
-  grid-template-columns: 88px 1fr 16px;
+  grid-template-columns: 120px 1fr 16px;
   gap: 16px;
   align-items: baseline;
   padding: 16px 0;
@@ -328,7 +328,7 @@ a:hover { text-decoration: underline; }
 
 .project-item {
   display: grid;
-  grid-template-columns: auto 1fr 16px;
+  grid-template-columns: 120px 1fr 16px;
   gap: 16px;
   align-items: flex-start;
   padding: 16px 0;
