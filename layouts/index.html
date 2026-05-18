@@ -68,22 +68,26 @@
 <!-- § 成长 -->
 <section class="section">
   <div class="section-header">§ 成长</div>
-  {{ $growth := .Site.GetPage "/growth" }}
-  {{ if $growth }}
+  {{ $entries := where .Site.RegularPages "Section" "growth" }}
+  {{ if $entries }}
   <ul class="growth-list">
-    {{ range first 3 $growth.Params.entries }}
+    {{ range first 3 $entries }}
     <li class="growth-item">
       <div class="growth-meta">
-        <span class="growth-cat">{{ .category }}</span>
-        <span class="growth-date">{{ .date }}</span>
+        <span class="growth-cat">{{ .Params.category }}</span>
+        <span class="growth-date">{{ .Date.Format "2006-01" }}</span>
       </div>
       <div class="growth-body">
-        <h2 class="growth-title">{{ .title }}</h2>
-        <p class="growth-desc">{{ .desc }}</p>
+        <a href="{{ .Permalink }}" class="growth-title-link">
+          <h2 class="growth-title">{{ .Title }}</h2>
+        </a>
+        <p class="growth-desc">{{ .Summary }}</p>
       </div>
     </li>
     {{ end }}
   </ul>
+  {{ else }}
+  <p style="font-size:13px;color:#bbb;">内容整理中 ...</p>
   {{ end }}
   <a href="/growth/" class="view-all">查看全部 →</a>
 </section>
