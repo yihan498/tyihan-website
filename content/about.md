@@ -11,7 +11,7 @@ layout: "single"
     <span class="meta-key">Major</span><span class="meta-val">金融学</span>
     <span class="meta-key">Location</span><span class="meta-val">北京</span>
     <span class="meta-key">公众号</span><span class="meta-val">Elowen Tian</span>
-    <span class="meta-key">Since</span><span class="meta-val">2026</span>
+    <span class="meta-key">Since</span><span class="meta-val">2025年5月18日</span>
   </div>
 
   <div class="page-body">
