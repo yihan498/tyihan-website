@@ -1,0 +1,23 @@
+{{ define "main" }}
+<div class="books-page">
+  <h1>书单</h1>
+
+  {{ $statuses := slice "在读" "已读" "想读" }}
+  {{ range $statuses }}
+  {{ $status := . }}
+  {{ $filtered := where $.Site.Data.books "status" $status }}
+  {{ if $filtered }}
+  <div class="section-header" style="margin-bottom:20px;">{{ $status }}</div>
+  <div class="book-grid" style="margin-bottom:40px;">
+    {{ range $filtered }}
+    <div class="book-card">
+      <div class="book-status {{ if eq .status "在读" }}reading{{ end }}">{{ .status }}</div>
+      <div class="book-title">{{ .title }}</div>
+      <div class="book-author">{{ .author }}</div>
+    </div>
+    {{ end }}
+  </div>
+  {{ end }}
+  {{ end }}
+</div>
+{{ end }}
