@@ -19,8 +19,8 @@ title = "田一含"
     url = "/articles/"
     weight = 1
   [[menu.main]]
-    name = "书单"
-    url = "/books/"
+    name = "成长"
+    url = "/growth/"
     weight = 2
   [[menu.main]]
     name = "项目"

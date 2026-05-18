@@ -65,6 +65,29 @@
   <a href="/articles/" class="view-all">查看全部 →</a>
 </section>
 
+<!-- § 成长 -->
+<section class="section">
+  <div class="section-header">§ 成长</div>
+  {{ $growth := .Site.GetPage "/growth" }}
+  {{ if $growth }}
+  <ul class="growth-list">
+    {{ range first 3 $growth.Params.entries }}
+    <li class="growth-item">
+      <div class="growth-meta">
+        <span class="growth-cat">{{ .category }}</span>
+        <span class="growth-date">{{ .date }}</span>
+      </div>
+      <div class="growth-body">
+        <h2 class="growth-title">{{ .title }}</h2>
+        <p class="growth-desc">{{ .desc }}</p>
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+  <a href="/growth/" class="view-all">查看全部 →</a>
+</section>
+
 <!-- § 项目 -->
 <section class="section">
   <div class="section-header">§ 项目</div>

@@ -88,9 +88,9 @@ a:hover { text-decoration: underline; }
 }
 
 .hero-bio {
-  font-size: 13px;
-  color: #666;
-  line-height: 1.9;
+  font-size: 16px;
+  color: #555;
+  line-height: 1.85;
   margin-bottom: 28px;
   font-family: 'Times New Roman', Times, serif;
 }
@@ -399,14 +399,85 @@ a:hover { text-decoration: underline; }
   margin-bottom: 40px;
 }
 
-/* ── Books full page ── */
-.books-page { padding: 56px var(--padding-x) 80px; }
+/* ── Growth page ── */
+.growth-page { padding: 56px var(--padding-x) 80px; }
 
-.books-page h1 {
+.growth-header { margin-bottom: 48px; }
+
+.growth-header h1 {
   font-size: 28px;
   font-weight: 800;
   letter-spacing: -0.5px;
-  margin-bottom: 40px;
+  margin-bottom: 8px;
+}
+
+.growth-subtitle {
+  font-size: 14px;
+  color: var(--color-muted);
+  font-family: var(--font-serif);
+}
+
+.growth-list { list-style: none; }
+
+.growth-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--color-border);
+  transition: background 0.15s;
+}
+
+.growth-item:first-child { border-top: 1px solid var(--color-border); }
+
+.growth-item:hover { background: #fafafa; }
+
+[data-theme="dark"] .growth-item:hover { background: #181818; }
+
+.growth-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 3px;
+}
+
+.growth-cat {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  background: #f4f4f4;
+  padding: 2px 8px;
+  border-radius: 3px;
+  white-space: nowrap;
+  display: inline-block;
+  width: fit-content;
+}
+
+[data-theme="dark"] .growth-cat { background: #222; }
+
+.growth-date {
+  font-size: 11px;
+  color: var(--color-subtle);
+  font-family: monospace;
+}
+
+.growth-body { display: flex; flex-direction: column; gap: 8px; }
+
+.growth-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-secondary);
+  font-family: var(--font-serif);
+  line-height: 1.4;
+  letter-spacing: -0.2px;
+}
+
+.growth-desc {
+  font-size: 14px;
+  color: var(--color-muted);
+  font-family: var(--font-serif);
+  line-height: 1.8;
 }
 
 /* ── Projects page ── */

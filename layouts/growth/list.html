@@ -1,0 +1,23 @@
+{{ define "main" }}
+<div class="growth-page">
+  <div class="growth-header">
+    <h1>成长</h1>
+    <p class="growth-subtitle">认知、规划与思考的碎片</p>
+  </div>
+
+  <ul class="growth-list">
+    {{ range .Params.entries }}
+    <li class="growth-item">
+      <div class="growth-meta">
+        <span class="growth-cat">{{ .category }}</span>
+        <span class="growth-date">{{ .date }}</span>
+      </div>
+      <div class="growth-body">
+        <h2 class="growth-title">{{ .title }}</h2>
+        <p class="growth-desc">{{ .desc }}</p>
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}
