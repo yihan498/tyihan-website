@@ -1,6 +1,9 @@
 {{ define "main" }}
 <div class="articles-page">
-  <h1>文章</h1>
+  <div class="page-top">
+    <h1>文章</h1>
+    <p class="page-subtitle">读书、思考、记录</p>
+  </div>
   {{ $articles := .Pages }}
   {{ if $articles }}
   <ul class="article-list">

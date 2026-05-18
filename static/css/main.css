@@ -218,6 +218,7 @@ a:hover { text-decoration: underline; }
 .section {
   padding: 36px var(--padding-x);
   border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
 }
 
 .section-header {
@@ -243,6 +244,7 @@ a:hover { text-decoration: underline; }
   align-items: baseline;
   padding: 14px 20px;
   border: 1px solid var(--color-border);
+  background: var(--color-bg);
   transition: padding-left 0.1s, border-color 0.1s;
 }
 
@@ -287,6 +289,7 @@ a:hover { text-decoration: underline; }
   gap: 24px;
   padding: 20px 24px;
   border: 1px solid var(--color-border);
+  background: var(--color-bg);
   transition: padding-left 0.1s, border-color 0.1s;
 }
 
@@ -347,6 +350,7 @@ a:hover { text-decoration: underline; }
   align-items: flex-start;
   padding: 16px 20px;
   border: 1px solid var(--color-border);
+  background: var(--color-bg);
   transition: padding-left 0.1s, border-color 0.1s;
 }
 
@@ -410,6 +414,7 @@ a:hover { text-decoration: underline; }
 
 .project-card {
   border: 1px solid var(--color-border);
+  background: var(--color-bg);
   padding: 28px;
   display: flex;
   flex-direction: column;
@@ -501,10 +506,27 @@ a:hover { text-decoration: underline; }
   text-decoration: none;
 }
 
+/* ── Subpage backgrounds (CSS :has) ── */
+body:has(.articles-page) main,
+body:has(.growth-page) main,
+body:has(.projects-page) main {
+  background: var(--color-surface);
+}
+
+body:has(.article-single) main,
+body:has(.page-single) main {
+  background: var(--color-surface);
+  min-height: 60vh;
+}
+
 /* ── Growth full page ── */
 .growth-page { padding: 56px var(--padding-x) 80px; }
 
-.growth-header { margin-bottom: 48px; }
+.growth-header {
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--color-border);
+}
 
 .growth-header h1 {
   font-size: 28px;
@@ -525,14 +547,29 @@ a:hover { text-decoration: underline; }
   font-size: 28px;
   font-weight: 700;
   letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.articles-page .page-subtitle {
+  font-size: 14px;
+  color: var(--color-muted);
   margin-bottom: 40px;
+}
+
+.articles-page .page-top {
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--color-border);
 }
 
 /* ── Article single page ── */
 .article-single {
-  max-width: 640px;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 56px var(--padding-x) 80px;
+  padding: 48px 56px 72px;
+  background: var(--color-bg);
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
 }
 
 .article-single .article-header { margin-bottom: 40px; }
@@ -594,9 +631,12 @@ a:hover { text-decoration: underline; }
 
 /* ── About / Contact ── */
 .page-single {
-  max-width: 640px;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 64px var(--padding-x) 80px;
+  padding: 48px 56px 72px;
+  background: var(--color-bg);
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
 }
 
 .page-headline {
