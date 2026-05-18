@@ -235,7 +235,11 @@ a:hover { text-decoration: underline; }
 
 
 /* ── Article list ── */
-.article-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.article-list {
+  list-style: none;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
 
 .article-item {
   display: grid;
@@ -243,12 +247,12 @@ a:hover { text-decoration: underline; }
   gap: 16px;
   align-items: baseline;
   padding: 14px 20px;
-  border: 1px solid var(--color-border);
-  background: var(--color-bg);
-  transition: padding-left 0.1s, border-color 0.1s;
+  border-bottom: 1px solid var(--color-border);
+  transition: padding-left 0.1s;
 }
 
-.article-item:hover { padding-left: 28px; border-color: var(--color-faint); }
+.article-item:last-child { border-bottom: none; }
+.article-item:hover { padding-left: 28px; }
 
 .a-date {
   font-size: 11px;
@@ -281,19 +285,23 @@ a:hover { text-decoration: underline; }
 .view-all:hover { color: var(--color-text); text-decoration: none; }
 
 /* ── Growth list (home + list page) ── */
-.growth-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.growth-list {
+  list-style: none;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
 
 .growth-item {
   display: grid;
   grid-template-columns: 120px 1fr;
   gap: 24px;
   padding: 20px 24px;
-  border: 1px solid var(--color-border);
-  background: var(--color-bg);
-  transition: padding-left 0.1s, border-color 0.1s;
+  border-bottom: 1px solid var(--color-border);
+  transition: padding-left 0.1s;
 }
 
-.growth-item:hover { padding-left: 32px; border-color: var(--color-faint); }
+.growth-item:last-child { border-bottom: none; }
+.growth-item:hover { padding-left: 32px; }
 
 .growth-meta {
   display: flex;
@@ -341,7 +349,11 @@ a:hover { text-decoration: underline; }
 }
 
 /* ── Project list (home) ── */
-.project-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.project-list {
+  list-style: none;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
 
 .project-item {
   display: grid;
@@ -349,12 +361,12 @@ a:hover { text-decoration: underline; }
   gap: 16px;
   align-items: flex-start;
   padding: 16px 20px;
-  border: 1px solid var(--color-border);
-  background: var(--color-bg);
-  transition: padding-left 0.1s, border-color 0.1s;
+  border-bottom: 1px solid var(--color-border);
+  transition: padding-left 0.1s;
 }
 
-.project-item:hover { padding-left: 28px; border-color: var(--color-faint); }
+.project-item:last-child { border-bottom: none; }
+.project-item:hover { padding-left: 28px; }
 
 .p-tags {
   padding-top: 3px;
