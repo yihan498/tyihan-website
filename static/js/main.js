@@ -5,14 +5,38 @@
   if (saved === 'dark') root.setAttribute('data-theme', 'dark');
 })();
 
-/* ── Hero headline stagger ── */
+/* ── Hero headline typewriter ── */
 (function () {
   const h = document.querySelector('.hero-headline');
   if (!h) return;
-  const parts = h.innerHTML.split(/<br\s*\/?>/i);
-  h.innerHTML = parts.map((part, i) =>
-    `<span class="hl-line" style="animation-delay:${i * 0.13}s">${part}</span>`
-  ).join('');
+  const fullHTML = h.innerHTML.trim();
+
+  // collect one display state per visible character (skip HTML tags)
+  const positions = [];
+  let i = 0;
+  while (i < fullHTML.length) {
+    if (fullHTML[i] === '<') {
+      i = fullHTML.indexOf('>', i) + 1;
+    } else {
+      i++;
+      positions.push(fullHTML.slice(0, i));
+    }
+  }
+
+  let pos = 0;
+  h.innerHTML = '<span class="hl-cursor">|</span>';
+
+  function type() {
+    if (pos >= positions.length) {
+      h.innerHTML = fullHTML; // done — remove cursor
+      return;
+    }
+    h.innerHTML = positions[pos] + '<span class="hl-cursor">|</span>';
+    pos++;
+    setTimeout(type, 38);
+  }
+
+  setTimeout(type, 150);
 })();
 
 document.addEventListener('DOMContentLoaded', function () {
