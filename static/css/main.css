@@ -228,11 +228,10 @@ a:hover { text-decoration: underline; }
   align-items: baseline;
   padding: 16px 0;
   border-bottom: 1px solid var(--color-border);
-  transition: background 0.15s;
 }
 
 .article-item:first-child { border-top: 1px solid var(--color-border); }
-.article-item:hover { background: var(--color-hover); }
+.article-item:hover { animation: glitch-box 0.4s step-end infinite; }
 
 .a-date {
   font-size: 11px;
@@ -245,27 +244,9 @@ a:hover { text-decoration: underline; }
   font-weight: 500;
   color: var(--color-secondary);
   line-height: 1.5;
-  position: relative;
-  display: block;
 }
 
 .a-title:hover { color: var(--color-text); text-decoration: none; }
-
-.a-title::before {
-  content: attr(data-text);
-  position: absolute;
-  left: 0; top: 0;
-  color: var(--color-accent);
-  opacity: 0;
-  pointer-events: none;
-  width: 100%;
-  clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
-}
-
-.a-title:hover::before {
-  animation: glitch-title 0.3s step-end infinite;
-  opacity: 0.5;
-}
 
 .a-arrow {
   font-size: 12px;
@@ -291,11 +272,10 @@ a:hover { text-decoration: underline; }
   gap: 24px;
   padding: 24px 0;
   border-bottom: 1px solid var(--color-border);
-  transition: background 0.15s;
 }
 
 .growth-item:first-child { border-top: 1px solid var(--color-border); }
-.growth-item:hover { background: var(--color-hover); }
+.growth-item:hover { animation: glitch-box 0.4s step-end infinite; }
 
 .growth-meta {
   display: flex;
@@ -333,23 +313,6 @@ a:hover { text-decoration: underline; }
   font-weight: 500;
   color: var(--color-secondary);
   line-height: 1.5;
-  position: relative;
-}
-
-.growth-title::before {
-  content: attr(data-text);
-  position: absolute;
-  left: 0; top: 0;
-  color: var(--color-accent);
-  opacity: 0;
-  pointer-events: none;
-  width: 100%;
-  clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
-}
-
-.growth-title-link:hover .growth-title::before {
-  animation: glitch-title 0.3s step-end infinite;
-  opacity: 0.5;
 }
 
 .growth-desc {
@@ -368,11 +331,10 @@ a:hover { text-decoration: underline; }
   align-items: flex-start;
   padding: 16px 0;
   border-bottom: 1px solid var(--color-border);
-  transition: background 0.15s;
 }
 
 .project-item:first-child { border-top: 1px solid var(--color-border); }
-.project-item:hover { background: var(--color-hover); }
+.project-item:hover { animation: glitch-box 0.4s step-end infinite; }
 
 .p-tags {
   padding-top: 3px;
@@ -390,24 +352,6 @@ a:hover { text-decoration: underline; }
   font-weight: 500;
   color: var(--color-secondary);
   line-height: 1.5;
-  position: relative;
-  display: block;
-}
-
-.p-name::before {
-  content: attr(data-text);
-  position: absolute;
-  left: 0; top: 0;
-  color: var(--color-accent);
-  opacity: 0;
-  pointer-events: none;
-  width: 100%;
-  clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
-}
-
-.p-name:hover::before {
-  animation: glitch-title 0.3s step-end infinite;
-  opacity: 0.5;
 }
 
 .p-name:hover { color: var(--color-text); text-decoration: none; }
@@ -750,12 +694,15 @@ a:hover { text-decoration: underline; }
 }
 
 /* ── Glitch hover animation ── */
-@keyframes glitch-title {
-  0%   { clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%); left: -2px; }
-  25%  { clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%); left:  2px; }
-  50%  { clip-path: polygon(0 10%, 100% 10%, 100% 30%, 0 30%); left: -1px; }
-  75%  { clip-path: polygon(0 70%, 100% 70%, 100% 90%, 0 90%); left:  1px; }
-  100% { clip-path: polygon(0 40%, 100% 40%, 100% 60%, 0 60%); left: -2px; }
+@keyframes glitch-box {
+  0%   { transform: translateX(0);    }
+  15%  { transform: translateX(-4px); }
+  30%  { transform: translateX(4px);  }
+  45%  { transform: translateX(-2px); }
+  60%  { transform: translateX(3px);  }
+  75%  { transform: translateX(-3px); }
+  90%  { transform: translateX(2px);  }
+  100% { transform: translateX(0);    }
 }
 
 /* ── Responsive ── */
