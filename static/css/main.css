@@ -669,7 +669,8 @@ body:has(.page-single) main {
 .article-card-img--placeholder {
   width: 100%;
   aspect-ratio: 3 / 2;
-  background: var(--color-surface);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
   display: block;
   transition: transform 0.3s ease;
 }
@@ -900,8 +901,24 @@ body:has(.page-single) main {
 
   .hero-headline { font-size: 38px; letter-spacing: -1.5px; }
 
+  /* Section headers: label + action on row 1, title on row 2 */
+  .section-header { flex-wrap: wrap; row-gap: 8px; }
+  .sh-label { order: 1; }
+  .sh-action { order: 2; margin-left: auto; }
+  .sh-title { order: 3; flex-basis: 100%; font-size: 16px; }
+
+  /* Article list */
   .article-item { grid-template-columns: 1fr; gap: 4px; }
   .a-arrow { display: none; }
 
+  /* Article grid: single column */
+  .article-grid { grid-template-columns: 1fr; }
+  .article-card:nth-child(-n+3) { padding-top: 28px; }
+  .article-card:first-child { padding-top: 0; }
+
+  /* Growth list */
   .growth-item { grid-template-columns: 1fr; gap: 12px; }
+
+  /* Project spines: horizontal scroll */
+  .project-list { overflow-x: auto; padding-bottom: 8px; }
 }
