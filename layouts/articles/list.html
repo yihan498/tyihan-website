@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="articles-page">
+  <h1>文章</h1>
+  {{ $articles := .Pages }}
+  {{ if $articles }}
+  <ul class="article-list">
+    {{ range $articles }}
+    <li class="article-item">
+      <span class="a-date">{{ .Date.Format "2006-01-02" }}</span>
+      <a href="{{ .Permalink }}" class="a-title">{{ .Title }}</a>
+      <span class="a-arrow">→</span>
+    </li>
+    {{ end }}
+  </ul>
+  {{ else }}
+  <p style="font-size:14px;color:#bbb;font-family:Georgia,serif;">文章即将更新...</p>
+  {{ end }}
+</div>
+{{ end }}
