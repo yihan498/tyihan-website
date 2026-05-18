@@ -155,10 +155,10 @@ a:hover { text-decoration: underline; }
   background: #f4f4f4;
   padding: 2px 7px;
   border-radius: 3px;
-  min-width: 44px;
   text-align: center;
   margin-top: 2px;
   flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .d-title {
@@ -539,7 +539,7 @@ a:hover { text-decoration: underline; }
 
 .project-item {
   display: grid;
-  grid-template-columns: 44px 1fr 16px;
+  grid-template-columns: auto 1fr 16px;
   gap: 16px;
   align-items: flex-start;
   padding: 16px 0;
@@ -555,6 +555,7 @@ a:hover { text-decoration: underline; }
 
 .p-tags {
   padding-top: 3px;
+  white-space: nowrap;
 }
 
 .p-body {
