@@ -10,8 +10,7 @@
   --color-bg: #fff;
   --font-sans: -apple-system, 'Helvetica Neue', Arial, sans-serif;
   --font-serif: Georgia, 'Times New Roman', serif;
-  --max-width: 860px;
-  --padding-x: 40px;
+  --padding-x: 5vw;
 }
 
 html { font-size: 16px; -webkit-font-smoothing: antialiased; }
@@ -28,8 +27,7 @@ a:hover { text-decoration: underline; }
 
 /* ── Layout wrapper ── */
 .site-wrapper {
-  max-width: var(--max-width);
-  margin: 0 auto;
+  width: 100%;
 }
 
 /* ── Nav ── */
