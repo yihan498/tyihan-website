@@ -102,10 +102,11 @@
 <!-- CURRENTLY strip -->
 <div class="currently-strip">
   <span class="cs-lbl">Currently</span>
-  {{ range $i, $item := .Params.currently }}
-  {{ if gt $i 0 }}<span class="cs-sep">·</span>{{ end }}
-  <span class="cs-it">{{ $item | safeHTML }}</span>
-  {{ end }}
+  <div class="cs-ticker">
+    <div class="cs-track">
+      {{ range .Params.currently }}<span class="cs-it">{{ . | safeHTML }}</span><span class="cs-sep">·</span>{{ end }}{{ range .Params.currently }}<span class="cs-it">{{ . | safeHTML }}</span><span class="cs-sep">·</span>{{ end }}
+    </div>
+  </div>
 </div>
 
 <!-- § 01 文章 -->

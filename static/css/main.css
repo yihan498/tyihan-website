@@ -482,14 +482,11 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   padding: 12px var(--padding-x);
   border-top: 1px dotted var(--color-faint);
-  border-bottom: none;
   font-family: var(--font-sans);
   font-size: 11px;
   color: var(--color-muted);
   letter-spacing: 0.05em;
-  overflow-x: auto;
-  white-space: nowrap;
-  gap: 0;
+  overflow: hidden;
 }
 
 .cs-lbl {
@@ -502,10 +499,30 @@ a { color: inherit; text-decoration: none; }
   flex-shrink: 0;
 }
 
+.cs-ticker {
+  overflow: hidden;
+  flex: 1;
+}
+
+.cs-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  white-space: nowrap;
+  animation: cs-scroll 28s linear infinite;
+}
+
+.cs-track:hover { animation-play-state: paused; }
+
+@keyframes cs-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 .cs-it { color: var(--color-text); }
 .cs-it i { font-family: var(--font-display); font-style: italic; font-size: 12.5px; color: var(--color-text); letter-spacing: 0; }
 .cs-it b { font-weight: 600; }
-.cs-sep { padding: 0 10px; color: var(--color-faint); flex-shrink: 0; }
+.cs-sep { padding: 0 12px; color: var(--color-faint); flex-shrink: 0; }
 
 /* ── Sections ── */
 .dp-section {
