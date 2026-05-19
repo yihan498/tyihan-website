@@ -1,0 +1,62 @@
+{{ define "main" }}
+{{ if .Parent.IsHome }}
+
+{{/* ── /growth/ 主页：展示文件夹卡片 ── */}}
+<div class="growth-page">
+  <div class="growth-header page-top">
+    <h1>成长</h1>
+    <p class="growth-subtitle">认知与规划的体系化积累</p>
+  </div>
+
+  <div class="folder-grid">
+    {{ range .Sections }}
+    <a class="folder-card" href="{{ .Permalink }}">
+      <div class="folder-top">
+        <div class="folder-tab">{{ .Title }}</div>
+      </div>
+      <div class="folder-body">
+        {{ with .Params.title_en }}<div class="folder-label-en">{{ . }}</div>{{ end }}
+        {{ with .Params.description }}<p class="folder-desc">{{ . }}</p>{{ end }}
+        <div class="folder-foot">
+          {{ $count := len .RegularPages }}
+          <span class="folder-count">
+            {{ if eq $count 0 }}整理中{{ else }}{{ $count }} 篇{{ end }}
+          </span>
+          <span class="folder-arrow">→</span>
+        </div>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+</div>
+
+{{ else }}
+
+{{/* ── /growth/[folder]/ 子页：展示该文件夹内的文章 ── */}}
+<div class="growth-page">
+  <div class="growth-folder-header page-top">
+    <a href="/growth/" class="folder-back">← 成长</a>
+    <div class="folder-header-inner">
+      {{ with .Params.title_en }}<span class="folder-header-en">{{ . }}</span>{{ end }}
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.description }}<p class="growth-subtitle">{{ . }}</p>{{ end }}
+    </div>
+  </div>
+
+  {{ if .RegularPages }}
+  <ul class="folder-article-list">
+    {{ range .RegularPages }}
+    <li class="folder-article-item">
+      <span class="fa-date">{{ .Date.Format "2006.01.02" }}</span>
+      <a href="{{ .Permalink }}" class="fa-title">{{ .Title }}</a>
+      <span class="fa-arrow">→</span>
+    </li>
+    {{ end }}
+  </ul>
+  {{ else }}
+  <p class="placeholder-text">内容整理中，敬请期待。</p>
+  {{ end }}
+</div>
+
+{{ end }}
+{{ end }}

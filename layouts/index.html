@@ -136,26 +136,20 @@
   <div class="dp-sec-head">
     <div class="dp-sh-lbl"><span class="num">§ 02 /</span> 成长 · Growth</div>
     <h2 class="dp-sh-ttl">认知与规划 <em>— notes on learning &amp; self-development</em></h2>
-    <a class="dp-sh-action" href="/growth/">查看全部 →</a>
+    <a class="dp-sh-action" href="/growth/">进入 →</a>
   </div>
-  {{ $entries := where .Site.RegularPages "Section" "growth" }}
-  {{ if $entries }}
-  <ul class="dp-growth-list">
-    {{ range first 3 $entries }}
-    <li class="dp-growth-item">
-      <div class="g-meta">
-        <span class="g-cat">{{ .Params.category | default (index .Params.tags 0) }}</span>
-        <span class="g-date">{{ .Date.Format "2006.01" }}</span>
-      </div>
-      <div>
-        <a href="{{ .Permalink }}" class="g-title">{{ .Title }}</a>
-      </div>
-    </li>
+  <div class="growth-home-preview">
+    {{ $growthPage := .Site.GetPage "/growth" }}
+    {{ if $growthPage }}
+    {{ range $growthPage.Sections }}
+    <a class="ghp-folder" href="{{ .Permalink }}">
+      <span class="ghp-name">{{ .Title }}</span>
+      <span class="ghp-en">{{ .Params.title_en }}</span>
+      <span class="ghp-count">{{ len .RegularPages }} 篇</span>
+    </a>
     {{ end }}
-  </ul>
-  {{ else }}
-  <p class="placeholder-text">内容整理中 ...</p>
-  {{ end }}
+    {{ end }}
+  </div>
 </section>
 
 <!-- § 03 项目 -->

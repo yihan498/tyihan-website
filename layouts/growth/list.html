@@ -2,29 +2,28 @@
 <div class="growth-page">
   <div class="growth-header page-top">
     <h1>成长</h1>
-    <p class="growth-subtitle">认知、规划与思考的碎片</p>
+    <p class="growth-subtitle">认知与规划的体系化积累</p>
   </div>
 
-  {{ $entries := where .Site.RegularPages "Section" "growth" }}
-  {{ if $entries }}
-  <ul class="growth-list">
-    {{ range $entries }}
-    <li class="growth-item">
-      <div class="growth-meta">
-        <span class="growth-cat">{{ .Params.category }}</span>
-        <span class="growth-date">{{ .Date.Format "2006-01" }}</span>
+  <div class="folder-grid">
+    {{ range .Sections }}
+    <a class="folder-card" href="{{ .Permalink }}">
+      <div class="folder-top">
+        <div class="folder-tab">{{ .Title }}</div>
       </div>
-      <div class="growth-body">
-        <a href="{{ .Permalink }}" class="growth-title-link">
-          <h2 class="growth-title">{{ .Title }}</h2>
-        </a>
-        <p class="growth-desc">{{ .Summary }}</p>
+      <div class="folder-body">
+        {{ with .Params.title_en }}<div class="folder-label-en">{{ . }}</div>{{ end }}
+        {{ with .Params.description }}<p class="folder-desc">{{ . }}</p>{{ end }}
+        <div class="folder-foot">
+          {{ $count := len .RegularPages }}
+          <span class="folder-count">
+            {{ if eq $count 0 }}整理中{{ else }}{{ $count }} 篇{{ end }}
+          </span>
+          <span class="folder-arrow">→</span>
+        </div>
       </div>
-    </li>
+    </a>
     {{ end }}
-  </ul>
-  {{ else }}
-  <p style="font-size:13px;color:#bbb;">内容整理中 ...</p>
-  {{ end }}
+  </div>
 </div>
 {{ end }}
