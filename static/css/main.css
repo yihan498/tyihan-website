@@ -599,6 +599,7 @@ a { color: inherit; text-decoration: none; }
   padding: 16px 0;
   border-bottom: 1px dotted var(--color-border);
 }
+.dp-article-item:last-child { border-bottom: none; }
 
 .dp-article-item .a-date {
   font-family: var(--font-sans);
@@ -658,6 +659,7 @@ a { color: inherit; text-decoration: none; }
   padding: 20px 0;
   border-bottom: 1px dotted var(--color-border);
 }
+.dp-growth-item:last-child { border-bottom: none; }
 
 .dp-growth-item .g-meta {
   display: flex;
