@@ -194,7 +194,6 @@ a { color: inherit; text-decoration: none; }
   gap: 56px;
   padding: 56px var(--padding-x) 64px;
   align-items: start;
-  border-bottom: 1px dotted var(--color-border);
 }
 
 .hero-left { padding-top: 12px; }
@@ -483,7 +482,7 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   padding: 12px var(--padding-x);
   border-top: 1px dotted var(--color-faint);
-  border-bottom: 1px dotted var(--color-faint);
+  border-bottom: none;
   font-family: var(--font-sans);
   font-size: 11px;
   color: var(--color-muted);
