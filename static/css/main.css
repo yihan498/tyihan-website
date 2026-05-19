@@ -893,12 +893,15 @@ a { color: inherit; text-decoration: none; }
 }
 
 .dp-cart .c-en {
+  writing-mode: vertical-rl;
   font-family: var(--font-display);
   font-style: italic;
   font-size: 11px;
   color: #9a9590;
-  line-height: 1;
+  line-height: 1.2;
   flex-shrink: 0;
+  overflow: hidden;
+  align-self: center;
 }
 
 .dp-cart .c-mid {
