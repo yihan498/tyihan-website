@@ -509,7 +509,20 @@ a { color: inherit; text-decoration: none; }
 .cs-sep { padding: 0 10px; color: var(--color-faint); flex-shrink: 0; }
 
 /* ── Sections ── */
-.dp-section { padding: 56px var(--padding-x) 0; }
+.dp-section {
+  padding: 56px var(--padding-x) 0;
+  position: relative;
+}
+.dp-section::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: calc(-1 * var(--padding-x));
+  right: calc(-1 * var(--padding-x));
+  height: 1px;
+  background: var(--color-secondary);
+}
 .dp-section--last { padding-bottom: 80px; }
 
 .dp-sec-head {
@@ -1230,9 +1243,9 @@ a { color: inherit; text-decoration: none; }
 }
 
 .project-card {
-  border-bottom: 1px dotted var(--color-border);
+  border-top: 1px dotted var(--color-border);
   background: var(--color-bg);
-  padding: 28px 0;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
