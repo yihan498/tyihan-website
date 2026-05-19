@@ -6,11 +6,15 @@
 })();
 
 document.addEventListener('DOMContentLoaded', function () {
-  /* ── Hero headline typewriter ── */
+  /* ── Hero headline typewriter (once per session) ── */
   (function () {
     const h = document.querySelector('.hero-headline');
     if (!h) return;
     const fullHTML = h.innerHTML.trim();
+
+    if (sessionStorage.getItem('hero-typed')) {
+      return;
+    }
 
     const positions = [];
     let i = 0;
@@ -29,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function type() {
       if (pos >= positions.length) {
         h.innerHTML = fullHTML;
+        sessionStorage.setItem('hero-typed', '1');
         return;
       }
       h.innerHTML = positions[pos] + '<span class="hl-cursor">|</span>';
