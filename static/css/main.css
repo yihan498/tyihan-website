@@ -725,7 +725,101 @@ a { color: inherit; text-decoration: none; }
   margin: 0;
 }
 
-/* ── §03 Project cassette cards ── */
+/* ── Project catalog list ── */
+.proj-catalog {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+.proj-entry {
+  padding: 20px 0;
+  border-top: 1px dotted var(--color-border);
+}
+
+.proj-entry:last-child { border-bottom: none; }
+
+.proj-entry-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.proj-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-faint);
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+
+.proj-name {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+  transition: color 0.15s;
+}
+
+.proj-name:hover { color: var(--color-accent); }
+
+.proj-name-en {
+  font-style: italic;
+  font-size: 14px;
+  color: var(--color-subtle);
+  font-weight: 400;
+}
+
+.proj-tags {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-left: 2px;
+}
+
+.proj-tag {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-accent);
+  background: rgba(138,47,36,0.07);
+  padding: 1px 6px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.proj-status {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.proj-status.live { color: #4a7c5e; }
+.proj-status.wip  { color: var(--color-faint); }
+
+.proj-desc {
+  font-family: var(--font-display);
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--color-muted);
+  max-width: 680px;
+  margin: 0 0 8px;
+}
+
+.proj-url {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--color-subtle);
+  letter-spacing: 0.02em;
+}
+
+.proj-url a { color: var(--color-link); transition: color 0.15s; }
+.proj-url a:hover { color: var(--color-accent); }
+
+/* ── Project cassette cards ── */
 .dp-shelf {
   display: flex;
   align-items: stretch;

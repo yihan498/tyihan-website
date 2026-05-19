@@ -109,59 +109,17 @@
   </div>
 </div>
 
-<!-- § 01 文章 -->
-<section class="dp-section">
-  <div class="dp-sec-head">
-    <div class="dp-sh-lbl"><span class="num">§ 01 /</span> 文章 · Articles</div>
-    <h2 class="dp-sh-ttl">阅读与记录 <em>— writing about ideas &amp; life</em></h2>
-    <a class="dp-sh-action" href="/articles/">查看全部 →</a>
-  </div>
-  {{ $articles := where .Site.RegularPages "Section" "articles" }}
-  {{ if $articles }}
-  <ul class="dp-articles">
-    {{ range $i, $a := first 5 $articles }}
-    <li class="dp-article-item">
-      <span class="a-date"><b>{{ $a.Params.category | default (index $a.Params.tags 0) }}</b>{{ $a.Date.Format "2006.01.02" }}</span>
-      <a href="{{ $a.Permalink }}" class="a-title{{ if eq $i 0 }} newest{{ end }}">{{ $a.Title }}{{ if eq $i 0 }}<span class="new-badge">NEW</span>{{ end }}</a>
-      <span class="a-arrow">→</span>
-    </li>
-    {{ end }}
-  </ul>
-  {{ else }}
-  <p class="placeholder-text">文章即将更新 ...</p>
-  {{ end }}
-</section>
-
-<!-- § 02 成长 -->
-<section class="dp-section">
-  <div class="dp-sec-head">
-    <div class="dp-sh-lbl"><span class="num">§ 02 /</span> 成长 · Growth</div>
-    <h2 class="dp-sh-ttl">认知与规划 <em>— notes on learning &amp; self-development</em></h2>
-    <a class="dp-sh-action" href="/growth/">进入 →</a>
-  </div>
-  <div class="growth-home-preview">
-    {{ $growthPage := .Site.GetPage "/growth" }}
-    {{ if $growthPage }}
-    {{ range $growthPage.Sections }}
-    <a class="ghp-folder" href="{{ .Permalink }}">
-      <span class="ghp-name">{{ .Title }}</span>
-      <span class="ghp-en">{{ .Params.title_en }}</span>
-      <span class="ghp-count">{{ len .RegularPages }} 篇</span>
-    </a>
-    {{ end }}
-    {{ end }}
-  </div>
-</section>
-
-<!-- § 03 项目 -->
+<!-- 项目 -->
 <section class="dp-section dp-section--last">
   <div class="dp-sec-head">
-    <div class="dp-sh-lbl"><span class="num">§ 03 /</span> 项目 · Works</div>
+    <div class="dp-sh-lbl">项目 · Works</div>
     <h2 class="dp-sh-ttl">探索与构建 <em>— projects &amp; experiments</em></h2>
     <a class="dp-sh-action" href="https://github.com/{{ .Site.Params.github }}" target="_blank" rel="noopener">GitHub ↗</a>
   </div>
   {{ $projects := .Site.GetPage "/projects" }}
   {{ if $projects }}
+
+  <!-- 卡带陈列架 -->
   <div class="dp-shelf">
     {{ range $i, $p := $projects.Params.projects }}
     <a class="dp-cart" href="{{ if $p.url }}{{ $p.url }}{{ else }}{{ $p.github }}{{ end }}" target="_blank" rel="noopener">
@@ -181,6 +139,23 @@
     </a>
     {{ end }}
   </div>
+
+  <!-- 项目目录 -->
+  <ul class="proj-catalog">
+    {{ range $i, $p := $projects.Params.projects }}
+    <li class="proj-entry">
+      <div class="proj-entry-head">
+        <span class="proj-num">P-{{ printf "%02d" (add $i 1) }}</span>
+        <a class="proj-name" href="{{ if $p.url }}{{ $p.url }}{{ else }}{{ $p.github }}{{ end }}" target="_blank" rel="noopener">{{ $p.name }}<span class="proj-name-en"> · {{ $p.name_en }}</span></a>
+        <span class="proj-tags">{{ range $p.tags }}<span class="proj-tag">{{ . }}</span>{{ end }}</span>
+        <span class="proj-status {{ if $p.url }}live{{ else }}wip{{ end }}">{{ if $p.url }}LIVE{{ else }}WIP{{ end }}</span>
+      </div>
+      {{ with $p.desc }}<p class="proj-desc">{{ . }}</p>{{ end }}
+      {{ with $p.url_label }}<div class="proj-url">↗ <a href="{{ if $p.url }}{{ $p.url }}{{ else }}{{ $p.github }}{{ end }}" target="_blank" rel="noopener">{{ . }}</a></div>{{ end }}
+    </li>
+    {{ end }}
+  </ul>
+
   {{ end }}
 </section>
 
