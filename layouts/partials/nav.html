@@ -1,11 +1,19 @@
 <div id="scroll-bar"></div>
 <nav class="site-nav">
-  <a class="nav-brand" href="/">Tian Yihan</a>
-  <ul class="nav-links">
-    {{ range .Site.Menus.main }}
-    <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-    {{ end }}
-  </ul>
-  <button id="theme-toggle" class="theme-btn" aria-label="切换暗色模式">○</button>
+  <div class="nav-brand-wrap">
+    <a class="nav-brand" href="/">Yihan<span class="sparkle">✦</span></a>
+    <span class="nav-brand-div">|</span>
+    <span class="nav-brand-meta"><b>@tianyihan</b> <span class="nav-brand-div">—</span> <span class="nav-date">{{ now.Format "02.01.2006" }}</span></span>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      {{ range .Site.Menus.main }}
+      <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+    <button id="theme-toggle" class="theme-btn" aria-label="切换暗色模式">○</button>
+    <a href="/contact/" class="nav-subscribe">Subscribe</a>
+  </div>
 </nav>
+<div class="nav-hairline"></div>
 <button id="back-to-top" class="back-to-top" aria-label="回到顶部">↑</button>

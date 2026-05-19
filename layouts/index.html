@@ -4,126 +4,190 @@
 <section class="hero">
   <div class="hero-left">
     <h1 class="hero-headline">
-      A lifelong<br>learner,<br><em>always</em><br>growing.
+      A lifelong<br>learner, <em>always</em><br>growing.
     </h1>
     <p class="hero-bio">
-      <strong>田一含</strong> &nbsp;Finance student. Reading, thinking, writing.<br>
-      Notes on wealth, growth, and the art of living.
+      <span class="name-zh">田一含</span><span class="dot"> · </span>writer, reader, finance student.<br>
+      Notes, essays and small tools from a finance major at <a href="https://www.ruc.edu.cn" target="_blank" rel="noopener">中国人民大学</a>—on <em>money, growth, language</em> and the slow art of <em>thinking well</em>. Posted when they reach a certain shape, in 中文 and English.
     </p>
-    <div class="hero-meta">
-      <span class="meta-key">School</span>
-      <span class="meta-val">{{ .Site.Params.school }}</span>
-
-      <span class="meta-key">Major</span>
-      <span class="meta-val">{{ .Site.Params.major }}</span>
-
-      <span class="meta-key">Location</span>
-      <span class="meta-val">{{ .Site.Params.location }}</span>
-
-      <span class="meta-key">公众号</span>
-      <span class="meta-val">{{ .Site.Params.wechat }}</span>
-
-      <span class="meta-key">Since</span>
-      <span class="meta-val">{{ .Site.Params.since }}</span>
-    </div>
+    <dl class="hero-meta">
+      <dt>First post</dt>
+      <dd>2025 · 关于复利思维的一些理解</dd>
+      <dt>Languages</dt>
+      <dd>中文<span class="sep"> · </span>English</dd>
+      <dt>Cadence</dt>
+      <dd>~1 essay / month <span class="quiet">— and a few smaller notes</span></dd>
+      <dt>Format</dt>
+      <dd>Essays · notes · letters · small tools</dd>
+      <dt>Since</dt>
+      <dd>May 18, 2025 <span class="quiet">(this journal)</span></dd>
+    </dl>
   </div>
 
-  <div class="hero-right">
-    <div class="dispatch-label">
-      <span class="active">近期更新</span>
-      <span><a href="/articles/" style="color:inherit">全部文章</a></span>
+  <aside class="dispatch-panel">
+    <div class="dp-head">
+      <span class="symb">§</span>
+      <span>Dispatch</span>
+      <span class="dim">·</span>
+      <span>Colophon</span>
     </div>
-    <ul class="dispatch-list">
-      {{ range .Params.dispatch }}
-      <li class="dispatch-item">
-        <span class="d-tag">{{ .tag }}</span>
-        <a href="{{ .url }}" class="d-title">{{ .title }}</a>
-        <span class="d-when">{{ .when }}</span>
-      </li>
+
+    <div class="dp-panel-top">
+      <div>
+        <div class="dp-cadence">
+          {{ range seq 42 }}<div class="dp-cad-dot"></div>{{ end }}
+          <div class="dp-cad-dot f1"></div>
+          <div class="dp-cad-dot f1"></div>
+          <div class="dp-cad-dot f1"></div>
+          <div class="dp-cad-dot f1"></div>
+          <div class="dp-cad-dot f1"></div>
+          <div class="dp-cad-dot f2"></div>
+          <div class="dp-cad-dot f1"></div>
+          <div class="dp-cad-dot f3"></div>
+          <div class="dp-cad-dot f3"></div>
+          <div class="dp-cad-dot f3"></div>
+        </div>
+        <div class="dp-cad-label">
+          <span>writing cadence · 52w</span>
+          <span><b>1</b> essay · <b>2</b> drafts · <b>3</b> notes</span>
+        </div>
+      </div>
+      <div class="dp-bureaux">
+        <div class="ttl">Posted from</div>
+        <div class="city">Beijing</div>
+        <div class="city next">RUC campus</div>
+        <div class="city next">somewhere quiet</div>
+      </div>
+    </div>
+
+    <div class="dp-rule"><span>§</span></div>
+
+    <div class="dp-rows">
+      {{ with .Params.status }}
+      <div class="dp-row">
+        <div class="pip"></div>
+        <div class="lbl">Reading</div>
+        <div class="val">{{ .reading }}<span class="when"> · {{ .reading_when }}</span></div>
+      </div>
+      <div class="dp-row">
+        <div class="pip"></div>
+        <div class="lbl">Writing</div>
+        <div class="val"><a href="{{ .writing_url }}">{{ .writing_title }}</a><span class="sep"> · </span><span class="when">{{ .writing_when }}</span></div>
+      </div>
+      <div class="dp-row">
+        <div class="pip"></div>
+        <div class="lbl">Shipping</div>
+        <div class="val">{{ .shipping | safeHTML }}</div>
+      </div>
+      <div class="dp-row">
+        <div class="pip"></div>
+        <div class="lbl">Coding</div>
+        <div class="val">{{ .coding | safeHTML }}</div>
+      </div>
+      <div class="dp-row">
+        <div class="pip"></div>
+        <div class="lbl">公众号</div>
+        <div class="val"><em>{{ .wechat_name }}</em><span class="when"> · {{ .wechat_cadence }}</span></div>
+      </div>
       {{ end }}
-    </ul>
-  </div>
+    </div>
+
+    <div class="dp-panel-foot">
+      <span>Set in <em>Newsreader</em> &amp; <em>Inter</em></span>
+      <span class="dp-datestamp">{{ now.Format "02 Jan 2006" | upper }}</span>
+    </div>
+  </aside>
 </section>
 
-<!-- § 文章 -->
-<section class="section">
-  <div class="section-header">
-    <span class="sh-label">§ 01 / 文章</span>
-    <div class="sh-title">阅读与记录 — <em>writing about ideas &amp; life</em></div>
-    <a href="/articles/" class="sh-action">查看全部 →</a>
+<!-- CURRENTLY strip -->
+<div class="currently-strip">
+  <span class="cs-lbl">Currently</span>
+  {{ range $i, $item := .Params.currently }}
+  {{ if gt $i 0 }}<span class="cs-sep">·</span>{{ end }}
+  <span class="cs-it">{{ $item | safeHTML }}</span>
+  {{ end }}
+</div>
+
+<!-- § 01 文章 -->
+<section class="dp-section">
+  <div class="dp-sec-head">
+    <div class="dp-sh-lbl"><span class="num">§ 01 /</span> 文章 · Articles</div>
+    <h2 class="dp-sh-ttl">阅读与记录 <em>— writing about ideas &amp; life</em></h2>
+    <a class="dp-sh-action" href="/articles/">查看全部 →</a>
   </div>
   {{ $articles := where .Site.RegularPages "Section" "articles" }}
   {{ if $articles }}
-  <ul class="article-list">
-    {{ range first 5 $articles }}
-    <li class="article-item">
-      <span class="a-date">{{ .Date.Format "2006-01-02" }}</span>
-      <a href="{{ .Permalink }}" class="a-title">{{ .Title }}</a>
+  <ul class="dp-articles">
+    {{ range $i, $a := first 5 $articles }}
+    <li class="dp-article-item">
+      <span class="a-date"><b>{{ $a.Params.category | default (index $a.Params.tags 0) }}</b>{{ $a.Date.Format "2006.01.02" }}</span>
+      <a href="{{ $a.Permalink }}" class="a-title{{ if eq $i 0 }} newest{{ end }}">{{ $a.Title }}{{ if eq $i 0 }}<span class="new-badge">NEW</span>{{ end }}</a>
       <span class="a-arrow">→</span>
     </li>
     {{ end }}
   </ul>
   {{ else }}
-  <p style="font-size:13px;color:#bbb;">文章即将更新 ...</p>
+  <p class="placeholder-text">文章即将更新 ...</p>
   {{ end }}
-
 </section>
 
-<!-- § 成长 -->
-<section class="section">
-  <div class="section-header">
-    <span class="sh-label">§ 02 / 成长</span>
-    <div class="sh-title">认知与规划 — <em>notes on learning &amp; self-development</em></div>
-    <a href="/growth/" class="sh-action">查看全部 →</a>
+<!-- § 02 成长 -->
+<section class="dp-section">
+  <div class="dp-sec-head">
+    <div class="dp-sh-lbl"><span class="num">§ 02 /</span> 成长 · Growth</div>
+    <h2 class="dp-sh-ttl">认知与规划 <em>— notes on learning &amp; self-development</em></h2>
+    <a class="dp-sh-action" href="/growth/">查看全部 →</a>
   </div>
   {{ $entries := where .Site.RegularPages "Section" "growth" }}
   {{ if $entries }}
-  <ul class="growth-list">
+  <ul class="dp-growth-list">
     {{ range first 3 $entries }}
-    <li class="growth-item">
-      <div class="growth-meta">
-        <span class="growth-cat">{{ .Params.category }}</span>
-        <span class="growth-date">{{ .Date.Format "2006-01" }}</span>
+    <li class="dp-growth-item">
+      <div class="g-meta">
+        <span class="g-cat">{{ .Params.category | default (index .Params.tags 0) }}</span>
+        <span class="g-date">{{ .Date.Format "2006.01" }}</span>
       </div>
-      <div class="growth-body">
-        <a href="{{ .Permalink }}" class="growth-title-link">
-          <h2 class="growth-title">{{ .Title }}</h2>
-        </a>
-        <p class="growth-desc">{{ .Summary }}</p>
+      <div>
+        <a href="{{ .Permalink }}" class="g-title">{{ .Title }}</a>
+        <p class="g-desc">{{ .Summary }}</p>
       </div>
     </li>
     {{ end }}
   </ul>
   {{ else }}
-  <p style="font-size:13px;color:#bbb;">内容整理中 ...</p>
+  <p class="placeholder-text">内容整理中 ...</p>
   {{ end }}
-
 </section>
 
-<!-- § 项目 -->
-<section class="section">
-  <div class="section-header">
-    <span class="sh-label">§ 03 / 项目</span>
-    <div class="sh-title">探索与构建 — <em>projects &amp; experiments</em></div>
-    <a href="/projects/" class="sh-action">查看全部 →</a>
+<!-- § 03 项目 -->
+<section class="dp-section dp-section--last">
+  <div class="dp-sec-head">
+    <div class="dp-sh-lbl"><span class="num">§ 03 /</span> 项目 · Works</div>
+    <h2 class="dp-sh-ttl">探索与构建 <em>— projects &amp; experiments</em></h2>
+    <a class="dp-sh-action" href="https://github.com/{{ .Site.Params.github }}" target="_blank" rel="noopener">GitHub ↗</a>
   </div>
   {{ $projects := .Site.GetPage "/projects" }}
   {{ if $projects }}
-  <ul class="project-list">
-    {{ range $projects.Params.projects }}
-    <li class="project-item">
-      <div class="p-tags">
-        {{ range first 1 .tags }}<span class="d-tag">{{ . }}</span>{{ end }}
+  <div class="dp-shelf">
+    {{ range $i, $p := $projects.Params.projects }}
+    <a class="dp-cart" href="{{ if $p.url }}{{ $p.url }}{{ else }}{{ $p.github }}{{ end }}" target="_blank" rel="noopener">
+      <div class="c-label">
+        <span class="c-cat">{{ index $p.tags 0 }}</span>
+        <span class="c-name">{{ $p.name }}</span>
+        <span class="c-en">{{ $p.name_en }}</span>
       </div>
-      <div class="p-body">
-        <a href="{{ if .url }}{{ .url }}{{ else }}{{ .github }}{{ end }}" class="p-name" target="_blank" rel="noopener">{{ .name }}</a>
-        <span class="p-name-en">{{ .name_en }}</span>
+      <div class="c-mid">
+        <div class="c-grooves"><i></i><i></i><i></i><i></i></div>
+        <div class="c-stamp">
+          <span>P-{{ printf "%02d" (add $i 1) }} · v01</span>
+          {{ if $p.url }}<span class="live">LIVE</span>{{ else }}<span class="wip">WIP</span>{{ end }}
+        </div>
       </div>
-    </li>
+      <div class="c-conn"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </a>
     {{ end }}
-  </ul>
+  </div>
   {{ end }}
-
 </section>
 
 {{ end }}
