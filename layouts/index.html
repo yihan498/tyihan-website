@@ -123,8 +123,10 @@
     {{ range $i, $p := $projects.Params.projects }}
     <a class="dp-cart" href="{{ if $p.url }}{{ $p.url }}{{ else }}{{ $p.github }}{{ end }}" target="_blank" rel="noopener">
       <div class="c-label">
-        <span class="c-cat">{{ index $p.tags 0 }}</span>
-        <span class="c-name">{{ $p.name }}</span>
+        <div class="c-zh">
+          <span class="c-cat">{{ index $p.tags 0 }}</span>
+          <span class="c-name">{{ $p.name }}</span>
+        </div>
         <span class="c-en">{{ $p.name_en }}</span>
       </div>
       <div class="c-mid">
